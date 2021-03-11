@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<TabPane prefHeight="392.0" prefWidth="614.0" style="-fx-background-color: #EED6D3;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserMenuController">
+   <tabs>
+<!--      <TabPane prefHeight="161.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">-->
+<!--        <tabs>-->
+<!--          <Tab text="Friends">-->
+<!--            <content>-->
+<!--              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="200.0" />-->
+<!--            </content>-->
+<!--          </Tab>-->
+<!--          <Tab text="Friend Requests" />-->
+<!--        </tabs>-->
+<!--      </TabPane>-->
+       <Tab text="Friends">
+           <AnchorPane prefHeight="373.0" prefWidth="647.0" style="-fx-background-color: #A49393;">
+               <children>
+      <Button fx:id="buttonBackToStartMenu" layoutX="57.0" layoutY="204.0" mnemonicParsing="false" onAction="#handleButtonBackToStart" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #E8B4B8;" text="Log out" textFill="#595252" />
+      <TableView fx:id="tableViewAll" blendMode="MULTIPLY" layoutX="292.0" layoutY="83.0" onMouseClicked="#checkIfUserFriend" prefHeight="157.0" prefWidth="306.0">
+        <columns>
+          <TableColumn fx:id="columnID" prefWidth="67.19997787475586" text="ID" />
+          <TableColumn fx:id="columnUsername" prefWidth="83.20001220703125" text="Username" />
+            <TableColumn fx:id="columnFirstName" prefWidth="77.0" text="First Name" />
+            <TableColumn fx:id="columnLastName" prefWidth="75.80000305175781" text="Last Name" />
+        </columns>
+      </TableView>
+      <TextField fx:id="searchTextField" layoutX="408.0" layoutY="10.0" onKeyPressed="#handleSearch" prefHeight="26.0" prefWidth="191.0" />
+      <Text fill="#e6d5b8" layoutX="295.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search users">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+      <Button fx:id="buttonAddFriend" layoutX="295.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleButtonAddFriend" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #EED6D3;" text="Add friend" textFill="#6f6464" />
+      <Button fx:id="buttonRemoveFriend" layoutX="457.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleButtonRemoveFriend" prefHeight="26.0" prefWidth="152.0" style="-fx-background-color: #EED6D3;" text="Remove Friend" textFill="#676060" />
+               <CheckBox fx:id="checkBoxMyFriends" layoutX="394.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleCheckBoxMyFriends" text="My Friends" textFill="WHITE" />
+               <Text fx:id="textName" fill="#e6d5b8" layoutX="57.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, ">
+                  <font>
+                     <Font size="14.0" />
+                  </font>
+               </Text>
+               <Button fx:id="buttonMenuNotifications" layoutX="150.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleButtonMenuNotifications" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #A49393;" />
+               <ListView fx:id="listViewNotifications" blendMode="MULTIPLY" fixedCellSize="0.0" layoutY="229.0" onMouseExited="#handleExitListViewNotifications" prefHeight="130.0" prefWidth="291.0" visible="false" />
+               <ImageView fx:id="imageView" fitHeight="96.0" fitWidth="120.0" layoutX="56.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
+               <Pagination fx:id="friendsPagination" layoutX="345.0" layoutY="217.0" onMouseClicked="#pageHandler" pageCount="4" prefHeight="76.0" prefWidth="200.0" />
+               <Circle fx:id="circleNotifications" fill="#fa314a" layoutX="173.0" layoutY="62.0" radius="12.0" stroke="#fa314a" strokeType="INSIDE" />
+               <Text fx:id="nrOfNotifications" fill="#d2c4c4" layoutX="146.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" wrappingWidth="54.46875" />
+               </children>
+           </AnchorPane>
+       </Tab>
+       <Tab text="Friend requests">
+           <AnchorPane style="-fx-background-color: #A49393;">
+               <children>
+      <TableView fx:id="friendRequestDTOTableView" blendMode="MULTIPLY" layoutX="88.0" layoutY="80.0" onMouseClicked="#checkFriendRequest" prefHeight="215.0" prefWidth="376.0">
+        <columns>
+          <TableColumn fx:id="columnFrom" prefWidth="91.79998779296875" text="From" />
+            <TableColumn fx:id="columnDate" prefWidth="87.800048828125" text="Date" />
+            <TableColumn fx:id="columnStatus" prefWidth="111.39996337890625" text="Status" />
+          <TableColumn fx:id="columnTo" prefWidth="85.00003051757812" text="To" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonAccept" layoutX="472.0" layoutY="113.0" mnemonicParsing="false" onAction="#handleButtonAccept" prefHeight="26.0" prefWidth="69.0" style="-fx-background-color: #e6d5b8;" text="Accept" textFill="#4c4242" />
+      <Button fx:id="buttonDecline" layoutX="473.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleButtonDecline" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #E8B4B8;" text="Decline" textFill="#4c4949" />
+      <Text fill="#e6d5b8" layoutX="211.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your friend requests" wrappingWidth="175.998046875">
+         <font>
+            <Font size="18.0" />
+         </font></Text>
+               <Button fx:id="buttonCancel" layoutX="473.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleButtonCancel" prefHeight="19.0" prefWidth="70.0" style="-fx-background-color: #e6d5b8;" text="Cancel" textFill="#4f4545" />
+               </children>
+           </AnchorPane>
+       </Tab>
+       <Tab text="Inbox">
+           <AnchorPane prefHeight="484.0" prefWidth="636.0" style="-fx-background-color: #A49393;">
+               <children>
+               <TableView fx:id="tableViewInbox" blendMode="MULTIPLY" layoutX="14.0" layoutY="10.0" onMouseClicked="#handleButtonViewConversation" prefHeight="320.0" prefWidth="184.0" style="-fx-background-color: #EED6D3;">
+                 <columns>
+                   <TableColumn fx:id="columnMessages" prefWidth="186.40001220703124" text="Messages" />
+                 </columns>
+               </TableView>
+               <Button fx:id="buttonSendMessage" layoutX="537.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleButtonSend" prefHeight="26.0" prefWidth="52.0" style="-fx-background-color: #EED6D3;" text="Send" />
+               <TextField fx:id="textFieldMessage" layoutX="201.0" layoutY="305.0" prefHeight="26.0" prefWidth="333.0" />
+               <ScrollPane fx:id="scrollPaneConv" layoutX="201.0" layoutY="12.0" prefHeight="290.0" prefWidth="386.0" style="-fx-background-color: #EED6D3;">
+                  <content>
+                     <AnchorPane fx:id="anchorPaneConversation" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="294.0" prefWidth="375.0" style="-fx-background-color: #A49393;" />
+                  </content>
+               </ScrollPane>
+               </children>
+           </AnchorPane>
+       </Tab>
+       <Tab text="Reports">
+           <AnchorPane style="-fx-background-color: #A49393;">
+            <children>
+               <Button fx:id="buttonGenerateReports" layoutX="403.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleButtonGenerateReports" prefHeight="33.0" prefWidth="154.0" style="-fx-background-color: #EED6D3;" text="Generate Reports" textFill="#645858" />
+               <Button fx:id="buttonExportReports" layoutX="405.0" layoutY="41.0" mnemonicParsing="false" onAction="#handleButtonDownload" prefHeight="16.0" prefWidth="151.0" style="-fx-background-color: #E8B4B8;" text="Download Report 1" textFill="#5f5050" />
+               <DatePicker fx:id="beginDate" layoutX="49.0" layoutY="31.0" />
+               <DatePicker fx:id="endDate" layoutX="49.0" layoutY="69.0" />
+               <Text layoutX="13.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Begin" />
+               <Text layoutX="18.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
+               <BarChart fx:id="chartMessages" layoutX="296.0" layoutY="94.0" prefHeight="266.0" prefWidth="304.0">
+                 <xAxis>
+                   <CategoryAxis fx:id="dateAxis" prefHeight="24.0" prefWidth="200.0" side="BOTTOM" />
+                 </xAxis>
+                 <yAxis>
+                   <NumberAxis fx:id="numberAxis" label="Messages/New friends" prefHeight="199.0" prefWidth="75.0" side="LEFT" />
+                 </yAxis>
+               </BarChart>
+               <BarChart fx:id="chartMessagesFrom" layoutX="49.0" layoutY="112.0" prefHeight="234.0" prefWidth="244.0">
+                 <xAxis>
+                   <CategoryAxis fx:id="dateAxis2" side="BOTTOM" />
+                 </xAxis>
+                 <yAxis>
+                   <NumberAxis fx:id="numberAxis2" label="Messages with user" side="LEFT" />
+                 </yAxis>
+               </BarChart>
+               <TableView fx:id="tableViewUsernamesReports" blendMode="MULTIPLY" layoutX="259.0" layoutY="9.0" prefHeight="95.0" prefWidth="126.0">
+                 <columns>
+                   <TableColumn fx:id="columnUsernameReports" prefWidth="122.39998817443848" text="Username" />
+                 </columns>
+               </TableView>
+               <Button fx:id="buttonDownload2" layoutX="405.0" layoutY="69.0" mnemonicParsing="false" onAction="#handleButtonDownload2" prefHeight="24.0" prefWidth="151.0" style="-fx-background-color: #E8B4B8;" text="Download Report 2" textFill="#614949" />
+            </children>
+           </AnchorPane>
+
+       </Tab>
+       <Tab text="Events">
+           <AnchorPane style="-fx-background-color: #A49393;">
+            <children>
+               <TableView fx:id="tableEvents" blendMode="MULTIPLY" layoutX="2.0" layoutY="18.0" onMouseClicked="#checkUserGoingToEvent" prefHeight="276.0" prefWidth="401.0">
+                 <columns>
+                   <TableColumn fx:id="columnEventName" prefWidth="84.19998025894165" text="Event Name" />
+                   <TableColumn fx:id="columnHost" prefWidth="76.4000015258789" text="Host" />
+                     <TableColumn fx:id="columnEventDate" prefWidth="124.60000610351562" text="Date" />
+                     <TableColumn fx:id="columnEventDescription" prefWidth="114.20001220703125" text="Description" />
+                 </columns>
+               </TableView>
+               <Button fx:id="buttonAddEvent" layoutX="473.0" layoutY="198.0" mnemonicParsing="false" onAction="#handleButtonAddEvent" style="-fx-background-color: #EED6D3;" text="Add event" textFill="#6c5c5c" />
+               <Button fx:id="buttonGoing" layoutX="102.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#handleButtonGoing" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: #EED6D3;" text="Going" textFill="#614f4f" />
+               <TextField fx:id="textFieldEventName" layoutX="409.0" layoutY="31.0" prefHeight="26.0" prefWidth="200.0" promptText="Event name" />
+               <TextArea fx:id="textAreaEventDescription" layoutX="409.0" layoutY="58.0" prefHeight="54.0" prefWidth="199.0" promptText="Event description" />
+               <DatePicker fx:id="datePickerEvent" layoutX="408.0" layoutY="120.0" prefHeight="26.0" prefWidth="201.0" promptText="Event date" />
+               <Spinner fx:id="spinnerHour" editable="true" layoutX="467.0" layoutY="151.0" max="24" min="01" prefHeight="26.0" prefWidth="69.0" />
+               <Spinner fx:id="spinnerMinutes" layoutX="539.0" layoutY="151.0" max="59" min="00" prefHeight="26.0" prefWidth="69.0" />
+               <Text fill="#644c4c" layoutX="407.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Event hour" />
+               <Button fx:id="buttonNotGoing" layoutX="185.0" layoutY="307.0" mnemonicParsing="false" onMouseClicked="#handleButtonNotGoing" style="-fx-background-color: #EED6D3;" text="Not going" textFill="#694d4d" />
+               <Button fx:id="buttonNotifications" layoutX="102.0" layoutY="335.0" mnemonicParsing="false" onMouseClicked="#handleButtonNotifications" style="-fx-background-color: #EED6D3;" text="Subscribe To Notifications" textFill="#5f5454" />
+            </children></AnchorPane>
+       </Tab>
+   </tabs>
+</TabPane>

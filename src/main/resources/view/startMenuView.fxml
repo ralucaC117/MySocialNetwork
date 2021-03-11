@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="389.0" prefWidth="339.0" style="-fx-background-color: #A49393;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartMenuController">
+   <children>
+      <Button fx:id="logInButton" layoutX="136.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleButtonLogIn" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #e6d5b8;" text="LOG IN" textFill="#6f5e5e" />
+      <Button fx:id="signUpButton" layoutX="136.0" layoutY="323.0" mnemonicParsing="false" onAction="#handleButtonSignUp" prefHeight="26.0" prefWidth="76.0" style="-fx-background-color: #e6d5b8;" text="SIGN UP" textFill="#696161" visible="false" />
+      <PasswordField fx:id="textfieldPassword" layoutX="96.0" layoutY="203.0" promptText="            password" style="-fx-background-color: #f4f4f4;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </PasswordField>
+      <Text fill="#eed6d3" fontSmoothingType="LCD" layoutX="91.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member Login" wrappingWidth="157.283203125">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#e6d5b8" layoutX="91.0" layoutY="320.0" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New user? Create an account!" />
+      <QuadCurve controlX="-6.400001525878906" controlY="-72.4000015258789" endX="42.600006103515625" fill="#67595e" layoutX="173.0" layoutY="111.0" startX="-50.0" stroke="#615757" strokeType="INSIDE" />
+      <Circle fill="#67595e" layoutX="169.0" layoutY="57.0" radius="18.0" stroke="#5f5555" strokeType="INSIDE" />
+      <TextField fx:id="usernameTextField" layoutX="95.0" layoutY="169.0" promptText="            username" style="-fx-background-color: #f4f4f4;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+   </children>
+</AnchorPane>
