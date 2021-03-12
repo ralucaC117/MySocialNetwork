@@ -1,3 +1,7 @@
 # MySocialNetwork
 JavaFX application
-a minimal social network which offers the possibility to become friends with other users, have private chats with them and attend events hosted by everyone from the network.
+Minimal interface
+Uses a PostgreSql local data base
+Users can become friends, have private chats, browse public events added by other users, subscribe to them and get notified about their proximity.
+
+
