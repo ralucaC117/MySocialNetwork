@@ -3,7 +3,7 @@ JavaFX application
 
 
 
-Minimal interface
+Friendly GUI
 
 
 
